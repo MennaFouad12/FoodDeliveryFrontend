@@ -1,0 +1,41 @@
+.header{
+  background: url('/header_img.png');
+  background-size: contain;
+  height: 34vw;
+position: relative;
+margin: 30px auto;
+}
+
+.header-content{
+  position: absolute;
+  display: flex;
+
+  flex-direction: column;
+  align-self: start;
+  gap: 1.5vw;
+  max-width: 50%;
+  bottom: 10%;
+  left: 6vw;
+
+}
+
+.header-content h2{
+  font-size: max(4.5vw, 22px);
+  font-weight: 500;
+  color: #fff;
+}
+.header-content p{
+  font-size: 1.5vw;
+  color: #fff;
+}
+
+.header-content button{
+  background: #fff;
+  color: #747474;
+  padding:1vw 2.3vw;
+  border-radius: 50px;
+  border: none;
+  font-size:max(1vw, 13px);
+  cursor: pointer;
+  width: fit-content;
+}
