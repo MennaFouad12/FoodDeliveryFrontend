@@ -326,7 +326,7 @@ import "simplebar-react/dist/simplebar.min.css";
 import { StoreContext } from "../../context/StoreContext";
 
 export default function ExploreMenu() {
-  const { categories, category, setCategory, loading, error } = useContext(StoreContext);
+  const { categories, category, setCategory, loadingCategories, categoryError } = useContext(StoreContext);
 
   // Animation variants
   const containerVariants = {
@@ -606,12 +606,12 @@ export default function ExploreMenu() {
 
         {/* Content Section */}
         <AnimatePresence mode="wait">
-          {loading ? (
+          {loadingCategories ? (
             // Loading State
             <motion.div key="loading">
               <LoadingSkeleton />
             </motion.div>
-          ) : error ? (
+          ) : categoryError ? (
             // Error State
             <motion.div key="error">
               <ErrorMessage />
@@ -719,7 +719,7 @@ export default function ExploreMenu() {
         </AnimatePresence>
 
         {/* Animated Separator (only show when not in error/empty state) */}
-        {!loading && !error && categories.length > 0 && (
+        {!loadingCategories && !categoryError && categories.length > 0 && (
           <motion.div 
             className="relative mt-8"
             initial={{ opacity: 0, width: 0 }}

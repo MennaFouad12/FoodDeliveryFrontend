@@ -697,6 +697,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { StoreContext } from "../../context/StoreContext";
 import { AuthContext } from "../../context/authContext";
 import { assets } from "../../assets/frontend_assets/assets";
+import toast from "react-hot-toast";
 
 export default function Cart() {
   const { cartItems, food_list, addToCart, removeFromCart, getTotalCartAmount } =
@@ -936,7 +937,9 @@ export default function Cart() {
                   <motion.img
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => removeFromCart(item._id)}
+                    onClick={() => {removeFromCart(item._id)
+                      toast.error(`${item.name} removed from cart`);
+                    }}
                     src={assets.remove_icon_red}
                     alt="remove"
                     className="w-8 h-8 cursor-pointer p-1 bg-red-50 rounded-full"
@@ -953,7 +956,9 @@ export default function Cart() {
                   <motion.img
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => addToCart(item._id)}
+                    onClick={() => {addToCart(item._id)
+                      toast.success(`${item.name} added to cart`);
+                    }}
                     src={assets.add_icon_green}
                     alt="add"
                     className="w-8 h-8 cursor-pointer p-1 bg-green-50 rounded-full"
@@ -966,7 +971,9 @@ export default function Cart() {
                 <motion.button
                   whileHover={{ scale: 1.3, color: "#ef4444" }}
                   whileTap={{ scale: 0.9 }}
-                  onClick={() => handleRemoveItem(item._id)}
+                  onClick={() => {handleRemoveItem(item._id)
+                      toast.error(`${item.name} removed from cart`);
+                  }}
                   className="text-red-500 font-bold text-lg cursor-pointer justify-self-center"
                 >
                   ×
@@ -1004,7 +1011,10 @@ export default function Cart() {
                     <motion.button
                       whileHover={{ scale: 1.3, color: "#ef4444" }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={() => handleRemoveItem(item._id)}
+                      onClick={() =>{ handleRemoveItem(item._id)
+
+                        toast.error(`${item.name} removed from cart`);
+                      }}
                       className="text-red-500 font-bold text-lg ml-2"
                     >
                       ×
@@ -1025,7 +1035,9 @@ export default function Cart() {
                       <motion.img
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.9 }}
-                        onClick={() => removeFromCart(item._id)}
+                        onClick={() => {removeFromCart(item._id)
+                            toast.error(`${item.name} removed from cart`);
+                        }}
                         src={assets.remove_icon_red}
                         alt="remove"
                         className="w-7 h-7 cursor-pointer p-1 bg-red-50 rounded-full"

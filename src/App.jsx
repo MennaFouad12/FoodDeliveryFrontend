@@ -5,10 +5,13 @@ import Home from './pages/Home/Home'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Cart from './pages/Cart/Cart'
 import Footer from './Components/Footer/Footer'
+import { Toaster } from "react-hot-toast";
+
 const App = () => {
   return (
     <>
     <div className='app '>
+      <Toaster position="top-right" />
       <Navbar></Navbar>
     <Routes>
       <Route path='/' element={<Home></Home>}></Route>
@@ -17,8 +20,12 @@ const App = () => {
     </Routes>
     </div>
     <Footer></Footer>
+
+  
     </>
   )
 }
 
 export default App
+
+

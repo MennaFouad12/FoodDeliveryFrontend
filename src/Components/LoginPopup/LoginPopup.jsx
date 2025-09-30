@@ -180,7 +180,7 @@ import * as Yup from "yup";
 import { motion, AnimatePresence } from "framer-motion";
 import { AuthContext } from "../../context/authContext";
 import { loginApi, registerApi } from "../../api/auth";
-
+import toast from "react-hot-toast";
 Modal.setAppElement("#root");
 
 // Validation Schemas
@@ -320,17 +320,22 @@ export default function LoginPopup({ isOpen, onClose }) {
                   if (!isSignup) {
                     delete payload.name;
                     const data = await loginApi(payload);
+                       toast.success(data.message || "Logged in successfully")
                     authLogin(data);
                   } else {
                     const data = await registerApi(payload);
-                    authLogin(data);
+                     toast.success(data.message || "Registered successfully");
+                    // authLogin(data);
                   }
                   
                   resetForm();
                   onClose();
                 } catch (err) {
-                  setErrors({ email: "Something went wrong. Try again." });
-                }
+  console.error("Login/Register error:", err);
+  setErrors({
+    email: err?.response?.data?.message || "Something went wrong. Try again.",
+  });
+}
                 
                 setSubmitting(false);
               }}

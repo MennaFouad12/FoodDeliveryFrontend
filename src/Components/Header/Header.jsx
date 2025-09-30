@@ -91,7 +91,7 @@ export default function Header() {
   };
 
   return (
-    <div className="relative mx-auto mt-[30px] h-[34vw] overflow-hidden rounded-2xl">
+    <div className="relative mx-auto mb-[60px] mt-[30px] h-[100vw] md:h-[40vw]  overflow-hidden rounded-2xl">
       {/* Background Image with Animation */}
       <motion.div
         className="absolute inset-0 bg-[url('/header_img.png')] bg-cover bg-center"
@@ -105,7 +105,7 @@ export default function Header() {
       
       {/* Content Container */}
       <motion.div
-        className="absolute bottom-[10%] left-[6vw] flex max-w-[50%] flex-col gap-[1.5vw]"
+        className="absolute bottom-[10%] left-[6vw] flex max-w-[60%] flex-col gap-[1.5vw]"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -120,7 +120,7 @@ export default function Header() {
         
         {/* Description */}
         <motion.p
-          className="text-white/90 text-[1.3vw] leading-relaxed drop-shadow-md"
+          className="text-white/90 text-[3vw] md:text-[1.3vw] leading-relaxed drop-shadow-md"
           variants={itemVariants}
         >
           Discover delicious meals crafted with passion. From traditional favorites 
