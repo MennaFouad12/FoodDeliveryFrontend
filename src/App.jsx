@@ -6,6 +6,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Cart from './pages/Cart/Cart'
 import Footer from './Components/Footer/Footer'
 import { Toaster } from "react-hot-toast";
+import Verify from './pages/Verify/Verify'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Route path='/' element={<Home></Home>}></Route>
       <Route path='/order' element={<PlaceOrder></PlaceOrder>}></Route>
       <Route path='/cart' element={<Cart></Cart>}></Route>
+      <Route path='/verify' element={<Verify></Verify>}></Route>
     </Routes>
     </div>
     <Footer></Footer>
